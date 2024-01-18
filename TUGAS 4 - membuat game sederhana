@@ -1,0 +1,114 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Fungsi untuk memulai pertarungan antara karakter dan monster
+void pertarungan(int& healthKarakter, int& healthMonster) {
+    while (healthKarakter > 0 && healthMonster > 0) {
+        cout << "Pilihan: \n";
+        cout << "1. Serang (-10xp)\n";
+        cout << "2. Memulihkan (+10pts)\n";
+        cout << "3. Beli senjata\n";
+        
+        int pilihan;
+        cout << "Masukkan pilihan Anda: ";
+        cin >> pilihan;
+
+        switch (pilihan) {
+            case 1:
+                cout << "Anda menyerang monster!\n";
+                healthMonster -= 10;
+                break;
+            case 2:
+                cout << "Anda memulihkan diri.\n";
+                healthKarakter += 70;
+                break;
+            case 3:
+                cout << "Pilihan senjata: \n";
+                cout << "1. Panah\n";
+                cout << "2. Pedang\n";
+                
+                int pilihanSenjata;
+                cout << "Masukkan pilihan senjata Anda: ";
+                cin >> pilihanSenjata;
+
+                if (pilihanSenjata == 1) {
+                    cout << "Anda membeli panah.\n";
+                } else if (pilihanSenjata == 2) {
+                    cout << "Anda membeli pedang.\n";
+                } else {
+                    cout << "Pilihan senjata tidak valid.\n";
+                }
+                break;
+            default:
+                cout << "Pilihan tidak valid.\n";
+                break;
+        }
+
+        // Monster menyerang
+        cout << "Monster menyerang Anda!\n";
+        healthKarakter -= 20;
+
+        // Menampilkan status kesehatan
+        cout << "Kesehatan Anda: " << healthKarakter << " | Kesehatan Monster: " << healthMonster << "\n\n";
+    }
+
+    // Menampilkan hasil pertarungan
+    if (healthKarakter <= 0) {
+        cout << "Game Over! Kesehatan Anda habis. Mulai ulang permainan.\n";
+    } else {
+        cout << "Anda berhasil mengalahkan monster! Selamat!\n";
+    }
+}
+
+int main() {
+    while (true) {
+        // Pilih karakter
+        cout << "Pilih karakter Anda: \n";
+        cout << "1. Ksatria\n";
+        cout << "2. Medis\n";
+        cout << "3. Pemanah\n";
+        
+        int pilihanKarakter;
+        cout << "Masukkan pilihan karakter Anda: ";
+        cin >> pilihanKarakter;
+
+        // Inisialisasi kesehatan karakter dan monster
+        int healthKarakter = 80;
+        int healthMonster = 50;
+
+        // Memulai pertarungan
+        switch (pilihanKarakter) {
+            case 1:
+                cout << "Anda memilih Ksatria.\n";
+                pertarungan(healthKarakter, healthMonster);
+                break;
+            case 2:
+                cout << "Anda memilih Medis.\n";
+                pertarungan(healthKarakter, healthMonster);
+                break;
+            case 3:
+                cout << "Anda memilih Pemanah.\n";
+                pertarungan(healthKarakter, healthMonster);
+                break;
+            default:
+                cout << "Pilihan karakter tidak valid.\n";
+                break;
+        }
+
+        // Tanya apakah ingin bermain lagi
+        char jawab;
+        cout << "Apakah Anda ingin bermain lagi? (y/n): ";
+        cin >> jawab;
+
+        if (jawab != 'y' && jawab != 'Y') {
+            cout << "Terima kasih telah bermain. Sampai jumpa!\n";
+            break;
+        }
+    }
+
+    return 0;
+}
+
+

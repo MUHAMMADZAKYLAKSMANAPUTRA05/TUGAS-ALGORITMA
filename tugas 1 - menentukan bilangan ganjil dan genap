@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int angka1, angka2;
+    
+    cout << "Masukkan angka ganjil: ";
+    cin >> angka1;
+    
+    cout << "Masukkan angka genap: ";
+    cin >> angka2;
+    
+    if ((angka1 % 2 == 1) && (angka2 % 2 == 0)) {
+        cout << "Kedua angka sesuai (angka pertama ganjil, angka kedua genap)" << endl;
+    } else if (angka1 % 2 == 0) {
+        cout << "Angka pertama tidak sesuai (harus ganjil)" << endl;
+    } else if (angka2 % 2 != 0) {
+        cout << "Angka kedua tidak sesuai (harus genap)" << endl;
+    } else {
+        cout << "Kedua angka tidak sesuai kriteria." << endl;
+    } 
+    return 0; 
+}
+

@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char pilihan;
+    int jumlahTiket;
+    const int hargaEkonomi = 100000; //harga tiket ekonomi
+    const int hargaBisnis = 200000; //harga tiket bisnis
+    const int hargaEksekutif = 300000; //harga tiket eksekutif
+    double totalHarga;
+
+    cout << "Pilih jenis tiket (E/B/K): ";
+    cin >> pilihan;
+
+    switch (pilihan) {
+        case 'E':
+            cout << "Jumlah tiket ekonomi: ";
+            cin >> jumlahTiket;
+            totalHarga = jumlahTiket * hargaEkonomi;
+            break;
+        case 'B':
+            cout << "Jumlah tiket bisnis: ";
+            cin >> jumlahTiket;
+            totalHarga = jumlahTiket * hargaBisnis;
+            break;
+        case 'K':
+            cout << "Jumlah tiket eksekutif: ";
+            cin >> jumlahTiket;
+            totalHarga = jumlahTiket * hargaEksekutif;
+            break;
+        default:
+            cout << "Pilihan tidak valid." << endl;
+            return 1;
+    }
+
+    // Menghitung potongan harga
+    double potongan = 0;
+    if (totalHarga > 500000) {
+        potongan = 0.1;
+    } else if (totalHarga > 300000) {
+        potongan = 0.05;
+    } else if (totalHarga > 200000) {
+        potongan = 0.02;
+    }
+
+    // Menghitung total harga setelah potongan
+    double hargaSetelahPotongan = totalHarga - (totalHarga * potongan);
+
+    // Menampilkan hasil
+    cout << "Total harga: " << totalHarga << " rupiah" << endl;
+    cout << "Potongan: " << potongan * 100 << "%" << endl;
+    cout << "Total harga setelah potongan: " << hargaSetelahPotongan << " rupiah" << endl;
+
+    return 0;
+}
+

@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    //program perhitungan luas persegi
+    int L,S; // l (luas) s (sisi)
+    cout << "==========================================================\n";
+    
+    cout<<"perhitungan luas persegi\n";
+    
+    cout <<"============================================================\n";
+    
+    cout<<"masukan panjang sisi persegi: ";
+    
+    cin >> S;
+    
+    L = S*S;
+    
+    cout<<"luas persegi adalah "<< L << endl;
+    
+    //program perhitungan luas persegi panjang
+    int P; // P (panjang)
+    cout << "===========================================================\n";
+    
+    cout <<"perhitungan luas persegi panjang\n";
+    
+    cout <<"masukan nilai panjang: ";
+    
+    cin >> P; 
+    
+    cout <<"masukan nilai lebar: ";
+    
+    cin >> L;
+    
+    L = (P*L);
+    
+    cout <<"luas persegi panjang adalah "<< L << endl;
+    
+    //program perhitungan luas lingkaran
+    cout <<"==========================================================\n";
+    
+    cout << endl;
+    
+    float R;
+    
+    cout << "masukan jari jari lingkaran: ";
+    
+    cin >> R;
+    
+    L = 3.14*R*R;
+    
+    cout << "luas lingkaran adalah "<< L << endl;
+  
+    
+    
+
+    return 0;
+}
